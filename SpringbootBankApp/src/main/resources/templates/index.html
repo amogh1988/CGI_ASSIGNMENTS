@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>BANK APP</title>
+</head>
+<body>
+<span th:text="${msg}" style="color:red"></span>
+<h2>Create an Account</h2>
+<form th:object="${acc}"  th:action="@{/createAccount}" method="post">
+	<label>AccountId</label>
+	<input type="number" th:field="*{accountId}" th:readonly="${readonly}"><br/>
+	<br>
+	<label>Name</label>
+	<input type="text" th:field="*{name}" th:readonly="${readonly}"><br/>
+	<br>
+	<label>Amount</label>
+	<input type="number" th:field="*{amount}"><br/>
+	<br>
+	<input type="submit" th:value="${buttonValue}" name="submitButton"/>
+	<input type="reset" value="reset"/>
+</form>
+
+<a href="/withdrawview">Withdraw</a>
+<a href="/depositview">Deposit</a>
+<a href="/checkbalanceview">Check Balance</a>
+<hr/>
+</body>
+</html>
